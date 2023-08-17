@@ -1,0 +1,1 @@
+curl -X PUT localhost:8000/new -d {\"url\":\"google.com\"}
