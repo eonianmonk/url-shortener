@@ -3,13 +3,13 @@ package service
 import (
 	"net/http"
 
+	"github.com/eonianmonk/url-shortener/data"
 	"github.com/eonianmonk/url-shortener/service/context"
 	"github.com/eonianmonk/url-shortener/service/handlers"
-	"github.com/eonianmonk/url-shortener/types"
 )
 
 type Service struct {
-	Storage types.Storage
+	Storage data.Storage
 	Host    string
 	Port    string
 }

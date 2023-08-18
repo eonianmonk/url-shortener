@@ -3,6 +3,7 @@ package data
 import (
 	"fmt"
 
+	"github.com/eonianmonk/url-shortener/data"
 	"github.com/eonianmonk/url-shortener/types"
 )
 
@@ -12,7 +13,7 @@ type runtimeStorage struct {
 	order   int
 }
 
-func NewRuntimeStorage(e types.Encoder) types.Storage {
+func NewRuntimeStorage(e types.Encoder) data.Storage {
 	return &runtimeStorage{
 		encoder: e,
 		idMap:   make(map[types.ID]types.Url),

@@ -3,8 +3,8 @@ package types
 import "github.com/catinello/base62"
 
 type Encoder interface {
-	Encode(ID) ShortUrl          // returns id for a string
-	Decode(ShortUrl) (ID, error) // decodes string to digit id
+	Encode(ID) ShortUrl
+	Decode(ShortUrl) (ID, error)
 }
 
 type encoder struct{}

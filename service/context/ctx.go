@@ -4,7 +4,7 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/eonianmonk/url-shortener/types"
+	"github.com/eonianmonk/url-shortener/data"
 )
 
 type ctxKey int
@@ -16,14 +16,14 @@ const (
 	LinkCtxKey
 )
 
-func CtxStorage(storage types.Storage) func(context.Context) context.Context {
+func CtxStorage(storage data.Storage) func(context.Context) context.Context {
 	return func(ctx context.Context) context.Context {
 		return context.WithValue(ctx, StorageCtxKey, storage)
 	}
 }
 
-func Storage(r *http.Request) types.Storage {
-	return r.Context().Value(StorageCtxKey).(types.Storage)
+func Storage(r *http.Request) data.Storage {
+	return r.Context().Value(StorageCtxKey).(data.Storage)
 }
 
 func CtxHost(link string) func(context.Context) context.Context {
