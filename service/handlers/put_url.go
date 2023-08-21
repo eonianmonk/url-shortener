@@ -16,7 +16,7 @@ func PutUrl(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	url := types.Url(req.Url)
-	//url.Verify()
+	url.Verify()
 	surl, err := context.Storage(r).Put(url)
 	if err != nil {
 		responses.RenderErr(w, err)
