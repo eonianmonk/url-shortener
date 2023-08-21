@@ -15,12 +15,14 @@ func PutUrl(w http.ResponseWriter, r *http.Request) {
 		responses.RenderErr(w, err)
 		return
 	}
-	surl, err := context.Storage(r).Put(types.Url(req.Url))
+	url := types.Url(req.Url)
+	//url.Verify()
+	surl, err := context.Storage(r).Put(url)
 	if err != nil {
 		responses.RenderErr(w, err)
 		return
 	}
 	host := context.Host(r)
-	resp := responses.NewPutUrlResponse(types.Url(req.Url), types.ShortUrl(surl), host)
+	resp := responses.NewPutUrlResponse(types.Url(url), types.ShortUrl(surl), host)
 	responses.Render(w, resp)
 }
