@@ -1,2 +1,2 @@
 .vscode
-*_bin
+./__debug_bin
